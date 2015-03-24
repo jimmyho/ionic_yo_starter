@@ -14,8 +14,11 @@ angular.module('starter', [
   'angulartics.mixpanel',
 
   // * MY APP * //
+  'config',
   'starter.controllers',
   'starter.directives',
+  'starter.filters',
+  'starter.services',
 ])
 
 
