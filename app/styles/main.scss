@@ -1,3 +1,7 @@
+@import "my-ionic";
+
 // Your application styles go here
 
-@import "ionic/scss/ionic";
+.bar.bar-stable .title {
+  color: white;
+}
