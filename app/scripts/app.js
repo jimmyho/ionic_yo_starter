@@ -15,6 +15,7 @@ angular.module('starter', [
 
   // * MY APP * //
   'starter.controllers',
+  'starter.directives',
 ])
 
 
