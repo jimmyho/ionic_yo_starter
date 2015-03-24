@@ -38,13 +38,50 @@ angular.module('starter.services', ['firebase'])
       return factory
     }
   ])
+
   .factory('Auth', ['$firebaseAuth', 'fbUtil',
     function ($firebaseAuth, fbUtil) {
       var auth = $firebaseAuth(fbUtil.ref())
 
       var factory = {}
 
-      //factory.auth = $firebaseAuth(ENV.firebase);
+      // Monitor auth state changes
+      var authChange = function (authData) {
+        if (authData) {
+          console.log("Logged in as:", authData.uid);
+        } else {
+          console.log("Logged out");
+        }
+        factory.user = auth.$getAuth()
+      }
+      auth.$onAuth(authChange)
+
+      // promise used for router
+      factory.getUser = function () {
+        return auth.$waitForAuth()
+          .then(function (user) {
+            if (user) {
+              console.log('Currently logged on as:', user.uid)
+              return $q.when(user)
+            } else {
+              return $q.reject({authRequired: true})
+            }
+          })
+      }
+
+      // Simple login to Firebase
+      factory.login = function (email, password) {
+        console.log('log in attempt')
+        return auth.$authWithPassword({
+            email: email,
+            password: password
+          }, {remember: true}
+        )
+      }
+
+      factory.logout = function () {
+        return auth.$unauth();
+      }
 
       return factory
     }
