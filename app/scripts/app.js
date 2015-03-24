@@ -22,7 +22,7 @@ angular.module('starter', [
 ])
 
 
-.run(function($ionicPlatform, ENV) {
+.run(function($ionicPlatform, ENV, Auth) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
