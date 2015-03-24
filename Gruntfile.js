@@ -276,7 +276,8 @@ module.exports = function (grunt) {
       },
       fonts: {
         expand: true,
-        cwd: 'app/lib/ionic/release/fonts/',
+        //cwd: 'app/lib/ionic/release/fonts/',
+        cwd: 'app/bower_components/ionic/fonts/',
         dest: '<%= yeoman.app %>/fonts/',
         src: '*'
       },
