@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('starter.services', ['firebase'])
+angular.module('starter.services', ['firebase', 'starter.states'])
   .factory('fbUtil', ['ENV',
     function (ENV) {
       var factory = {}
@@ -39,8 +39,8 @@ angular.module('starter.services', ['firebase'])
     }
   ])
 
-  .factory('Auth', ['$firebaseAuth', 'fbUtil',
-    function ($firebaseAuth, fbUtil) {
+  .factory('Auth', ['$firebaseAuth', 'fbUtil', '$q', 'loginState', '$state',
+    function ($firebaseAuth, fbUtil, $q, loginState, $state) {
       var auth = $firebaseAuth(fbUtil.ref())
 
       var factory = {}
@@ -51,6 +51,7 @@ angular.module('starter.services', ['firebase'])
           console.log("Logged in as:", authData.uid);
         } else {
           console.log("Logged out");
+          $state.go(loginState)
         }
         factory.user = auth.$getAuth()
       }

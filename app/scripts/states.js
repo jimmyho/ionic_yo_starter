@@ -1,20 +1,22 @@
 "use strict";
 
 angular.module('starter.states', [])
+  .constant('loginState', 'app.playlists')
   .constant('STATES', {
-    'app':{
+    'app': {
       url: "/app",
       abstract: true,
       templateUrl: "templates/menu.html",
       controller: 'AppCtrl'
     },
-    'app.search':{
+    'app.search': {
       url: "/search",
       views: {
         'menuContent': {
           templateUrl: "templates/search.html"
         }
-      }
+      },
+      authRequired: true
     },
     'app.browse': {
       url: "/browse",
@@ -45,11 +47,19 @@ angular.module('starter.states', [])
   })
   .config(['$stateProvider', '$urlRouterProvider', 'STATES',
     function ($stateProvider, $urlRouterProvider, STATES) {
+      var applyAuthRequired = function (path, state) {
+        state.resolve = state.resolve || {};
+        state.resolve.user = ['Auth', function (Auth) {
+          return Auth.getUser()
+        }];
+        $stateProvider.state(path, state);
+      }
 
       angular.forEach(STATES, function (state, path) {
-        if (state.customerRequired) {
+        if (state.authRequired) {
           // Add resolve
-          $stateProvider.whenCustomerAuth(path, state);
+          console.log('authRequired:', path)
+          applyAuthRequired(path, state);
         } else {
           // all other routes are added normally
           $stateProvider.state(path, state);
@@ -61,6 +71,20 @@ angular.module('starter.states', [])
       console.log('config: configured States')
     }
   ])
-//.directive('example', function () {
-//
-//})
+
+  .run(['$rootScope', '$state', 'loginState',
+    function ($rootScope, $state, loginState) {
+
+      $rootScope.$on("$stateChangeError",
+        function (event, toState, toParams, fromState, fromParams, err) {
+          console.log(err)
+
+          if (angular.isObject(err)) {
+            console.log('$stateChangeError', err)
+            if (err.authRequired) {
+              $state.go(loginState);
+            }
+          }
+        });
+
+    }])
