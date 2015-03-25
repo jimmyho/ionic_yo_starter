@@ -51,4 +51,16 @@ angular.module('starter.controllers', [])
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
-});
+})
+
+.controller('IntroCtrl', ['$scope', function($scope) {
+    $scope.show_signup = function(){
+      console.log('show signup modal')
+    }
+
+    $scope.show_login = function(){
+      console.log('show login modal')
+    }
+}])
+;
+

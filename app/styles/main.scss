@@ -3,11 +3,39 @@
 
 // Your application styles go here
 
-.bar.bar-stable .title {
-  color: white;
-}
-
-
 #intro {
-  background-color: #666;
+  background-image: url('http://lorempixel.com/output/nature-h-g-438-769-5.jpg');
+  background-size: cover;
+  background-position: center;
+
+  h1 {
+    color: white;
+  }
+
+  .logo {
+    background-image: url('http://placehold.it/100x100&text=logo');
+    position: relative;
+    display: block;
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    margin: 30px auto;
+
+  }
+
+  .button-bar-footer {
+    background: transparent;
+  }
+
+  .slider {
+    height: 100%;
+    color: white;
+    .slider-slide {
+      padding-top: 50px;
+      text-align: center;
+    }
+    .slider-pager .slider-pager-page {
+      color: white;
+    }
+  }
 }

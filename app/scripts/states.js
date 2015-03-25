@@ -6,7 +6,8 @@ angular.module('starter.states', [])
 
     'intro' :{
       url: '/intro',
-      templateUrl: 'templates/intro.html'
+      templateUrl: 'templates/intro.html',
+      controller: 'IntroCtrl'
     },
 
     'app': {
@@ -73,7 +74,7 @@ angular.module('starter.states', [])
       });
 
       // routes which are not in our map are redirected to /home
-      $urlRouterProvider.otherwise('/app/playlists');
+      $urlRouterProvider.otherwise('/intro');
       console.log('config: configured States')
     }
   ])

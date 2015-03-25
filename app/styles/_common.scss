@@ -1,7 +1,25 @@
-// Common Styles
+// Common Styles to the app
+
+h1, h2, h3, h4 {
+  font-weight: bold;
+}
 
 .bottom {
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+
+.button-bar-footer {
+  &.bar-footer {
+    margin: 0;
+    padding: 0;
+
+    .col {
+      padding-top: 0;
+    }
+    .button {
+      width: 100%;
+    }
+  }
 }
