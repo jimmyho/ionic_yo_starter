@@ -3,6 +3,12 @@
 angular.module('starter.states', [])
   .constant('loginState', 'app.playlists')
   .constant('STATES', {
+
+    'intro' :{
+      url: '/intro',
+      templateUrl: 'templates/intro.html'
+    },
+
     'app': {
       url: "/app",
       abstract: true,
