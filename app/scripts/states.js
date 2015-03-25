@@ -9,12 +9,12 @@ angular.module('starter.states', [])
       templateUrl: 'templates/intro.html',
       controller: 'IntroCtrl'
     },
-
     'app': {
       url: "/app",
       abstract: true,
       templateUrl: "templates/menu.html",
-      controller: 'AppCtrl'
+      controller: 'AppCtrl',
+      authRequired: true
     },
     'app.search': {
       url: "/search",
@@ -23,7 +23,6 @@ angular.module('starter.states', [])
           templateUrl: "templates/search.html"
         }
       },
-      authRequired: true
     },
     'app.browse': {
       url: "/browse",

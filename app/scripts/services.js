@@ -80,6 +80,14 @@ angular.module('starter.services', ['firebase', 'starter.states'])
         )
       }
 
+      factory.signUp = function (params) {
+        return auth.$createUser({email: params.email, password: params.password})
+          .then(function () {
+            // authenticate so we have permission to write to Firebase
+            return factory.login(params.email, params.password);
+          })
+      }
+
       factory.logout = function () {
         return auth.$unauth();
       }

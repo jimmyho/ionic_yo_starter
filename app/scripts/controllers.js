@@ -54,8 +54,24 @@ angular.module('starter.controllers', [])
   })
 
   .controller('IntroCtrl', ['$scope', 'UIService', 'Auth', function ($scope, UIService, Auth) {
+
+    $scope.close = UIService.hide_modal
+
+    // * SIGN UP * //
+    $scope.signUpData = {}
     $scope.show_signup = function () {
       console.log('show signup modal')
+      UIService.show_modal('templates/signup.html', $scope)
+    }
+    $scope.doSignUp = function () {
+      console.log('doSignUp')
+
+      console.log($scope.signUpData)
+      Auth.signUp($scope.signUpData).then(function (x) {
+        console.log(x)
+      }).catch(function (err) {
+        console.error(err)
+      })
     }
 
     // * LOGIN * //
@@ -64,9 +80,7 @@ angular.module('starter.controllers', [])
       console.log('show login modal')
       UIService.show_modal('templates/login.html', $scope)
     }
-    $scope.closeLogin = function () {
-      UIService.hide_modal()
-    };
+
     $scope.doLogin = function () {
       console.log('Doing login', $scope.loginData);
       Auth.login($scope.loginData.username, $scope.loginData.password)
