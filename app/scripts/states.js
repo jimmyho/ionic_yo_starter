@@ -4,7 +4,7 @@ angular.module('starter.states', [])
   .constant('loginState', 'intro')
   .constant('STATES', {
 
-    'intro' :{
+    'intro': {
       url: '/intro',
       templateUrl: 'templates/intro.html',
       controller: 'IntroCtrl'

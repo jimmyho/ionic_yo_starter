@@ -152,7 +152,7 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
-        ignorePath:  /\.\.\//,
+        ignorePath: /\.\.\//,
         exclude: ['bower_components/ionic/css/ionic.css']
 
       },
@@ -384,8 +384,8 @@ module.exports = function (grunt) {
         },
         coverageReporter: {
           reporters: [
-            { type: 'html', dir: 'coverage/' },
-            { type: 'text-summary' }
+            {type: 'html', dir: 'coverage/'},
+            {type: 'text-summary'}
           ]
         }
       },
@@ -484,11 +484,11 @@ module.exports = function (grunt) {
   });
 
   // Wrap ionic-cli commands
-  grunt.registerTask('ionic', function() {
+  grunt.registerTask('ionic', function () {
     var done = this.async();
     var script = path.resolve('./node_modules/ionic/bin/', 'ionic');
     var flags = process.argv.splice(3);
-    var child = spawn(script, this.args.concat(flags), { stdio: 'inherit' });
+    var child = spawn(script, this.args.concat(flags), {stdio: 'inherit'});
     child.on('close', function (code) {
       code = code ? false : true;
       done(code);
@@ -512,15 +512,15 @@ module.exports = function (grunt) {
     grunt.config('concurrent.ionic.tasks', ['ionic:serve', 'watch']);
     grunt.task.run(['wiredep', 'init', 'concurrent:ionic']);
   });
-  grunt.registerTask('emulate', function() {
+  grunt.registerTask('emulate', function () {
     grunt.config('concurrent.ionic.tasks', ['ionic:emulate:' + this.args.join(), 'watch']);
     return grunt.task.run(['init', 'concurrent:ionic']);
   });
-  grunt.registerTask('run', function() {
+  grunt.registerTask('run', function () {
     grunt.config('concurrent.ionic.tasks', ['ionic:run:' + this.args.join(), 'watch']);
     return grunt.task.run(['init', 'concurrent:ionic']);
   });
-  grunt.registerTask('build', function() {
+  grunt.registerTask('build', function () {
     return grunt.task.run(['init', 'ionic:build:' + this.args.join()]);
   });
 
@@ -553,8 +553,8 @@ module.exports = function (grunt) {
 
   grunt.registerTask('coverage',
     ['karma:continuous',
-    'connect:coverage:keepalive'
-  ]);
+      'connect:coverage:keepalive'
+    ]);
 
   grunt.registerTask('default', [
     'wiredep',
