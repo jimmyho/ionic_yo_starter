@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module('starter.states', [])
-  .constant('loginState', 'app.playlists')
+  .constant('loginState', 'intro')
   .constant('STATES', {
 
     'intro' :{
