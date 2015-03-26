@@ -11,7 +11,7 @@ angular.module('starter.login', [])
       $scope.signUpData = {}
       $scope.show_signup = function () {
         console.log('show signup modal')
-        UIService.show_modal('scripts/login/signup.html', $scope)
+        UIService.show_modal('components/login/signup.html', $scope)
       }
       $scope.doSignUp = function () {
         console.log('doSignUp')
@@ -31,7 +31,7 @@ angular.module('starter.login', [])
       $scope.loginData = {};
       $scope.show_login = function () {
         console.log('show login modal')
-        UIService.show_modal('scripts/login/login.html', $scope)
+        UIService.show_modal('components/login/login.html', $scope)
       }
 
       $scope.doLogin = function () {
