@@ -19,6 +19,7 @@ angular.module('starter', [
   'starter.directives',
   'starter.filters',
   'starter.services',
+  'starter.services.auth',
   'starter.states',
 ])
 
