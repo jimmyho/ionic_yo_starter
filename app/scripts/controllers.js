@@ -2,7 +2,8 @@
 
 angular.module('starter.controllers', [])
 
-  .controller('AppCtrl', function ($scope, $ionicModal, $timeout, Auth) {
+  .controller('AppCtrl', ['$scope', 'Auth', function ($scope, Auth) {
+
     // Form data for the login modal
     //$scope.loginData = {};
     //
@@ -37,7 +38,11 @@ angular.module('starter.controllers', [])
     //      $scope.closeLogin();
     //    })
     //};
-  })
+    $scope.logOut = function () {
+      console.log('logOut')
+      Auth.logOut()
+    }
+  }])
 
   .controller('PlaylistsCtrl', function ($scope) {
     $scope.playlists = [

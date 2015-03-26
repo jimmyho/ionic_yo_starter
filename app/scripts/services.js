@@ -39,21 +39,24 @@ angular.module('starter.services', ['firebase', 'starter.states'])
     }
   ])
 
-  .factory('Auth', ['$firebaseAuth', 'fbUtil', '$q', 'loginState', '$state',
-    function ($firebaseAuth, fbUtil, $q, loginState, $state) {
+  .factory('Auth', ['$firebaseAuth', 'fbUtil', '$q', 'loginState', '$state', '$rootScope',
+    function ($firebaseAuth, fbUtil, $q, loginState, $state, $rootScope) {
       var auth = $firebaseAuth(fbUtil.ref())
 
       var factory = {}
 
       // Monitor auth state changes
       var authChange = function (authData) {
+
         if (authData) {
           console.log("Logged in as:", authData.uid);
+          console.log(authData)
         } else {
           console.log("Logged out");
           $state.go(loginState)
         }
-        factory.user = auth.$getAuth()
+        $rootScope.authData = auth.$getAuth()
+
       }
       auth.$onAuth(authChange)
 
@@ -88,7 +91,7 @@ angular.module('starter.services', ['firebase', 'starter.states'])
           })
       }
 
-      factory.logout = function () {
+      factory.logOut = function () {
         return auth.$unauth();
       }
 
