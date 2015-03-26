@@ -39,8 +39,8 @@ angular.module('starter.services', ['firebase', 'starter.states'])
     }
   ])
 
-  .factory('Auth', ['$firebaseAuth', 'fbUtil', '$q', 'loginState', '$state', '$rootScope',
-    function ($firebaseAuth, fbUtil, $q, loginState, $state, $rootScope) {
+  .factory('Auth', ['$firebaseAuth', 'fbUtil', '$q', 'loginRedirect', '$state', '$rootScope',
+    function ($firebaseAuth, fbUtil, $q, loginRedirect, $state, $rootScope) {
       var auth = $firebaseAuth(fbUtil.ref())
 
       var factory = {}
@@ -53,7 +53,7 @@ angular.module('starter.services', ['firebase', 'starter.states'])
           console.log(authData)
         } else {
           console.log("Logged out");
-          $state.go(loginState)
+          $state.go(loginRedirect)
         }
         $rootScope.authData = auth.$getAuth()
 

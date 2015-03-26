@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module('starter.states', [])
-  .constant('loginState', 'intro')
+  .constant('loginRedirect', 'intro')
   .constant('STATES', {
 
     'intro': {
@@ -78,8 +78,8 @@ angular.module('starter.states', [])
     }
   ])
 
-  .run(['$rootScope', '$state', 'loginState',
-    function ($rootScope, $state, loginState) {
+  .run(['$rootScope', '$state', 'loginRedirect',
+    function ($rootScope, $state, loginRedirect) {
 
       $rootScope.$on("$stateChangeError",
         function (event, toState, toParams, fromState, fromParams, err) {
@@ -88,7 +88,7 @@ angular.module('starter.states', [])
           if (angular.isObject(err)) {
             console.log('$stateChangeError', err)
             if (err.authRequired) {
-              $state.go(loginState);
+              $state.go(loginRedirect);
             }
           }
         });
