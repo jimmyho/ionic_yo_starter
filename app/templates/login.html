@@ -9,12 +9,10 @@
     <form ng-submit="doLogin()" novalidate>
       <div class="list">
         <label class="item item-input">
-          <span class="input-label">Username</span>
-          <input type="text" ng-model="loginData.email">
+          <input ng-model="loginData.email" placeholder="Email" type="text" name="email" required>
         </label>
         <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" ng-model="loginData.password">
+          <input ng-model="loginData.password" placeholder="Password" type="password" name="password" required>
         </label>
         <label class="item">
           <button class="button button-block button-positive" type="submit">Log in</button>
