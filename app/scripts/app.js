@@ -18,8 +18,9 @@ angular.module('starter', [
   'starter.controllers',
   'starter.directives',
   'starter.filters',
-  'starter.services',
   'starter.services.auth',
+  'starter.services.fbUtil',
+  'starter.services.common',
   'starter.states',
 ])
 
