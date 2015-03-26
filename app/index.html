@@ -48,22 +48,24 @@
   <!-- cordova script (this will be a 404 during development) -->
   <script src="cordova.js"></script>
 
-  <!-- your app's js -->
   <!-- build:js components/components.js -->
   <script src="components/app.js"></script>
+  <script src="components/states.js"></script>
+  <script src="components/configuration.js"></script>
+
+  <!--Common-->
   <script src="components/common/directives.js"></script>
   <script src="components/common/filters.js"></script>
-  <script src="components/configuration.js"></script>
-  <script src="components/states.js"></script>
-
-  <script src="components/controllers.js"></script>
-  <script src="components/intro/intro.js"></script>
-  <script src="components/playlist/playlist.js"></script>
-  <script src="components/login/login.js"></script>
   <script src="components/common/auth.js"></script>
   <script src="components/common/menu.js"></script>
   <script src="components/common/fbUtil.js"></script>
   <script src="components/common/services.js"></script>
+
+  <!--Modules-->
+  <script src="components/controllers.js"></script>
+  <script src="components/intro/intro.js"></script>
+  <script src="components/playlist/playlist.js"></script>
+  <script src="components/login/login.js"></script>
   <!-- endbuild -->
 </head>
 

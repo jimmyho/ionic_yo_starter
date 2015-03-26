@@ -35,6 +35,7 @@ angular.module('starter', [
 
   .run(function ($ionicPlatform, ENV, $cordovaStatusbar) {
     $ionicPlatform.ready(function () {
+      console.log('$ionicPlatform.ready')
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
       if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -55,7 +56,7 @@ angular.module('starter', [
         //$cordovaStatusbar.styleHex('#000');
       }
 
-      console.log('Environment:', ENV)
+      //console.log('Environment:', ENV)
 
     });
   })

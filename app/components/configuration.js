@@ -2,6 +2,6 @@
 
  angular.module('config', [])
 
-.constant('ENV', {name:'production',firebase:'https://ionic-yo-starter.firebaseio.com/'})
+.constant('ENV', {name:'development',firebase:'https://ionic-yo-starter.firebaseio.com/'})
 
 ;

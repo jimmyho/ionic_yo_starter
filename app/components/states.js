@@ -63,7 +63,7 @@ angular.module('starter.states', [])
       angular.forEach(STATES, function (state, path) {
         if (state.authRequired) {
           // Add resolve
-          console.log('authRequired:', path)
+          //console.log('authRequired:', path)
           applyAuthRequired(path, state);
         } else {
           // all other routes are added normally
@@ -73,7 +73,7 @@ angular.module('starter.states', [])
 
       // routes which are not in our map are redirected to /home
       $urlRouterProvider.otherwise('/intro');
-      console.log('config: configured States')
+      //console.log('config: configured States')
     }
   ])
 
