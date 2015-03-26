@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('starter.services.fbUtil', ['firebase', 'starter.states'])
+angular.module('starter.common.fbUtil', ['firebase', 'starter.states'])
   .factory('fbUtil', ['ENV',
     function (ENV) {
       var factory = {}

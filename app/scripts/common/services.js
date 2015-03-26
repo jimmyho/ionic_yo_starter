@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('starter.services.common', ['firebase', 'starter.states'])
+angular.module('starter.common.services', ['firebase', 'starter.states'])
   .factory('UIService', ['$rootScope', '$ionicModal', '$ionicLoading',
     function ($rootScope, $ionicModal, $ionicLoading) {
 

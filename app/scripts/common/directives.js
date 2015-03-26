@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('starter.directives', [])
+angular.module('starter.common.directives', [])
 //.directive('example', function () {
 //
 //})

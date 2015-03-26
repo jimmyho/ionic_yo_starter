@@ -6,13 +6,12 @@ angular.module('starter.states', [])
 
     'intro': {
       url: '/intro',
-      templateUrl: 'templates/intro.html',
+      templateUrl: 'scripts/intro/intro.html',
       controller: 'IntroCtrl'
     },
     'app': {
       url: "/app",
-      abstract: true,
-      templateUrl: "templates/menu.html",
+      templateUrl: "scripts/common/menu.html",
       controller: 'AppCtrl',
       authRequired: true
     },
@@ -36,7 +35,7 @@ angular.module('starter.states', [])
       url: "/playlists",
       views: {
         'menuContent': {
-          templateUrl: "templates/playlists.html",
+          templateUrl: "scripts/playlist/playlists.html",
           controller: 'PlaylistsCtrl'
         }
       }
@@ -45,7 +44,7 @@ angular.module('starter.states', [])
       url: "/playlists/:playlistId",
       views: {
         'menuContent': {
-          templateUrl: "templates/playlist.html",
+          templateUrl: "scripts/playlist/playlist.html",
           controller: 'PlaylistCtrl'
         }
       }

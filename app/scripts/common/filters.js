@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('starter.filters', [])
+angular.module('starter.common.filters', [])
   .filter('moment', function () {
     // filter to run any momentJS function
     return function (input, momentFn /*, param1, param2, etc... */) {

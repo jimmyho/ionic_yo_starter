@@ -15,12 +15,20 @@ angular.module('starter', [
 
   // * MY APP * //
   'config',
+  'starter.common.directives',
+  'starter.common.filters',
+  'starter.common.services',
+  'starter.common.menu',
+  'starter.common.auth',
+  'starter.common.fbUtil',
+
   'starter.controllers',
-  'starter.directives',
-  'starter.filters',
-  'starter.services.auth',
-  'starter.services.fbUtil',
-  'starter.services.common',
+
+
+  'starter.intro',
+  'starter.login',
+  'starter.playlist',
+
   'starter.states',
 ])
 

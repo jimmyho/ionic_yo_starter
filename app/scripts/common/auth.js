@@ -1,13 +1,13 @@
 "use strict";
 
-angular.module('starter.services.auth', ['firebase', 'starter.states'])
+angular.module('starter.common.auth', ['firebase', 'starter.states'])
   .factory('Auth', ['$firebaseAuth', 'fbUtil', '$q', '$state', '$rootScope', 'loginRedirect',
     function ($firebaseAuth, fbUtil, $q, $state, $rootScope, loginRedirect) {
       var auth = $firebaseAuth(fbUtil.ref())
 
       var factory = {}
 
-      // Monitor auth state changes
+      // Monitor login state changes
       var authChange = function (authData) {
 
         if (authData) {

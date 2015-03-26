@@ -1,8 +1,8 @@
 "use strict";
 
-angular.module('starter.controllers')
+angular.module('starter.login', [])
 
-  .controller('IntroCtrl', ['$scope', 'UIService', 'Auth', '$state',
+  .controller('LoginCtrl', ['$scope', 'UIService', 'Auth', '$state',
     function ($scope, UIService, Auth, $state) {
 
       $scope.close = UIService.hide_modal
@@ -11,7 +11,7 @@ angular.module('starter.controllers')
       $scope.signUpData = {}
       $scope.show_signup = function () {
         console.log('show signup modal')
-        UIService.show_modal('templates/signup.html', $scope)
+        UIService.show_modal('scripts/login/signup.html', $scope)
       }
       $scope.doSignUp = function () {
         console.log('doSignUp')
@@ -31,7 +31,7 @@ angular.module('starter.controllers')
       $scope.loginData = {};
       $scope.show_login = function () {
         console.log('show login modal')
-        UIService.show_modal('templates/login.html', $scope)
+        UIService.show_modal('scripts/login/login.html', $scope)
       }
 
       $scope.doLogin = function () {
