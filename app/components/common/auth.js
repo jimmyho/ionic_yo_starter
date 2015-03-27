@@ -1,8 +1,9 @@
 "use strict";
 
 angular.module('starter.common.auth', ['firebase', 'starter.states'])
-  .factory('Auth', ['$firebaseAuth', 'fbUtil', '$q', '$state', '$rootScope', 'loginRedirect',
-    function ($firebaseAuth, fbUtil, $q, $state, $rootScope, loginRedirect) {
+
+  .factory('Auth', ['$firebaseAuth', 'fbUtil', '$q', '$state', '$rootScope', 'loginRedirect', '$mixpanel',
+    function ($firebaseAuth, fbUtil, $q, $state, $rootScope, loginRedirect, $mixpanel) {
       var auth = $firebaseAuth(fbUtil.ref())
 
       var factory = {}
@@ -12,6 +13,9 @@ angular.module('starter.common.auth', ['firebase', 'starter.states'])
 
         if (authData) {
           console.log("Logged in as:", authData.uid);
+          $mixpanel.identify(authData.uid)
+          $mixpanel.track('logged in')
+
           console.log(authData)
         } else {
           console.log("Logged out");

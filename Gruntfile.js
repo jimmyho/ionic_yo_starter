@@ -44,7 +44,8 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'development',
-            firebase: 'https://ionic-yo-starter.firebaseio.com/'
+            firebase: 'https://ionic-yo-starter.firebaseio.com/',
+            mixpanelAPI: ''
           }
         }
       },

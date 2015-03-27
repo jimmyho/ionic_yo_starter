@@ -11,7 +11,8 @@ angular.module('starter', [
   'ngCordova',
   'firebase',
   'angular.filter',
-  'angulartics.mixpanel',
+  //'angulartics.mixpanel',
+  'analytics.mixpanel',
 
   // * MY APP * //
   'config',
@@ -60,4 +61,10 @@ angular.module('starter', [
 
     });
   })
-
+  .config(['$mixpanelProvider', 'ENV',
+    function ($mixpanelProvider, ENV) {
+      console.log('init mixpanel', ENV.mixpanelAPI)
+      $mixpanelProvider.apiKey(ENV.mixpanelAPI);
+    }
+  ])
+;
